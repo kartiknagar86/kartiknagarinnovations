@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik Nagar Innovations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #1b1b1b;
+            background-color: #fef6e4;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #5e548e;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffdd57;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #efefef;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background-color: #ffdd57;
+            border: none;
+            border-radius: 5px;
+            color: #5e548e;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #ff9f00;
+        }
+
+        .about, .services, .projects {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        .contact h2 {
+            margin-bottom: 40px;
+            color: #1b1b1b;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            color: #5e548e;
+            text-align: left;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #5e548e;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5e548e;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #4a3f73;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #5e548e 0%, #4a3f73 100%);
+            color: #fef6e4;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 221, 87, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+            color: #ffdd57;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #ffdd57;
+            padding-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 221, 87, 0.2);
+            transform: translateX(5px);
+        }
+
+        .contact-item .icon {
+            width: 40px;
+            height: 40px;
+            background: #ffdd57;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5e548e;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-item .label {
+            font-size: 0.9rem;
+            color: #ffdd57;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: #fef6e4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .contact-item a:hover {
+            color: #ffdd57;
+        }
+
+        .contact-item .description {
+            font-size: 0.85rem;
+            color: rgba(254, 246, 228, 0.8);
+            margin-top: 4px;
+        }
+
+        .business-hours {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 221, 87, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #ffdd57;
+            position: relative;
+            z-index: 1;
+        }
+
+        .business-hours h4 {
+            color: #ffdd57;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .business-hours p {
+            margin: 4px 0;
+            font-size: 0.9rem;
+            color: #fef6e4;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .services .card, .projects .project-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            background-color: #5e548e;
+            color: #fef6e4;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .services .card:hover, .projects .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #5e548e;
+            color: #fef6e4;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Kartik Nagar Innovations</h1>
+        <p>Empowering Ideas into Digital Reality</p>
+        <button>View My Work</button>
+    </section>
+
+    <section id="about" class="about">
+        <img src="C:\Users\MAHAKAL\Desktop\Kartik portfolio website\kartik photo.png" alt="Profile Image">
+        <h2>About Kartik Nagar</h2>
+        <p>Kartik Nagar is a BCA student and the founder of Kartik Nagar Innovations, with a passion for creating innovative digital solutions.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Services</h2>
+        <div class="card">
+            <h3>Website Design</h3>
+        </div>
+        <div class="card">
+            <h3>App Development</h3>
+        </div>
+        <div class="card">
+            <h3>AI-Powered Solutions</h3>
+        </div>
+        <div class="card">
+            <h3>Tech Consultation</h3>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Mahakal Jyotish Website</h3>
+            <p><b>Description:<b> Astrology website with kundli generator, puja booking, and Firebase integration.</p>
+            <p><b>Technologies:<b>HTML,CSS,JS,</p>
+            <p><b>Link:<b><a href="https://mahakaljyotishujjain.rf.gd/" style="color: orange;">Click</a></p>
+
+
+        </div>
+        <div class="project-card">
+            <h3>My Personal Portfolio Site</h3>
+            <p><b>Description:<b> A modern, responsive portfolio website built using HTML, CSS, and AI tools and projects under my personal brand Kartik Nagar Innovations.</p>
+            <p><b>Technologies:<b> HTML</p>
+        </div>
+        <div class="project-card">
+            <h3>Dairy Task Manager App</h3>
+            <p><b>Description:<b>This project is a task manager app built to help users track their daily goals, set reminders, and view progress analytics.</p>
+            <p><b>Tecnologies:<b>HTML</p>
+            <p><b>Link:<b>Comming Soon</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="icon">📱</div>
+                    <div class="contact-details">
+                        <div class="label">WhatsApp</div>
+                        <a href="https://wa.me/919691252214">+91 96912 52214</a>
+                        <div class="description">Quick response via WhatsApp</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon">💼</div>
+                    <div class="contact-details">
+                        <div class="label">LinkedIn</div>
+                        <a href="http://www.linkedin.com/in/kartiknagar86">Kartik Nagar</a>
+                        <div class="description">web and app davloper</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <div class="contact-details">
+                        <div class="label">Email</div>
+                        <a href="mailto:kartiknagar074@gmail.com">kartiknagar074@gmail.com</a>
+                        <div class="description">For business inquiries</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div class="contact-details">
+                        <div class="label">Location</div>
+                        <a href="https://maps.app.goo.gl/B3sqXDuR2uHX35dy5" target="_blank">View on Google Maps</a>
+                        <div class="description">Available for remote work</div>
+                    </div>
+                </div>
+                
+                <div class="business-hours">
+                    <h4>⏰ Availability</h4>
+                    <p><strong>Monday - Friday:</strong> 9:00 AM - 7:00 PM IST</p>
+                    <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM IST</p>
+                    <p><strong>Sunday:</strong> By appointment only</p>
+                    <p style="margin-top: 10px; font-style: italic;">Response time: Within 2-4 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © Kartik Nagar Innovations | Made with ❤️ in India
+    </footer>
+</body>
+</html>
+
